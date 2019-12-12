@@ -5,19 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="密码管理器" Height="395.344" Width="414.474"
+        Title="密码管理器" Height="395.344" Width="431.574"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" AllowDrop="True">
     <Grid>
         <TabControl Margin="0">
             <TabItem Header="密码转换">
                 <Grid Background="#FFE5E5E5"  Drop="FileDragOver" >
                     <PasswordBox Name="PasswordInput" HorizontalAlignment="Left" Margin="133,68,0,0" VerticalAlignment="Top" Height="23" Width="184" VerticalContentAlignment="Center"/>
+                    <TextBox Name="TextPasswordInput" HorizontalAlignment="Left" Height="23" Margin="133,68,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="184" Visibility="Hidden" VerticalContentAlignment="Center"/>
                     <Label Content="转换密码" HorizontalAlignment="Left" Margin="64,66,0,0" VerticalAlignment="Top"/>
-                    <Label Name="TipsLabel" Content="当前加载文件:空" HorizontalAlignment="Center" Margin="64,104,31,0" VerticalAlignment="Top" Width="307" VerticalContentAlignment="Center"/>
-                    <TextBox Name="Result" HorizontalAlignment="Left" Height="23" Margin="133,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" VerticalContentAlignment="Center"/>
+                    <Label Name="TipsLabel" Content="当前加载文件:空" HorizontalAlignment="Center" Margin="65,104,48,0" VerticalAlignment="Top" Width="307" VerticalContentAlignment="Center"/>
+                    <TextBox Name="Result" HorizontalAlignment="Left" Height="23" Margin="133,230,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="184" VerticalContentAlignment="Center"/>
                     <Label Content="转换结果" HorizontalAlignment="Left" Margin="64,230,0,0" VerticalAlignment="Top"/>
                     <Button Name="ConvertButton" Content="转换" HorizontalAlignment="Left" Margin="158,290,0,0" VerticalAlignment="Top" Width="76" Click="ConvertButton_Click"/>
-                    <Label x:Name="CommentLabel" Content="备注:空" HorizontalAlignment="Center" Margin="64,145,31,0" VerticalAlignment="Top" Width="307" VerticalContentAlignment="Center"/>
+                    <Label x:Name="CommentLabel" Content="备注:空" HorizontalAlignment="Center" Margin="65,145,48,0" VerticalAlignment="Top" Width="307" VerticalContentAlignment="Center"/>
+                    <CheckBox Name="ShowPassword" Content="显示密码" HorizontalAlignment="Left" Margin="327,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.024,0.35" Unchecked="CheckBox_Checked" Checked="CheckBox_Checked"/>
 
 
                 </Grid>
@@ -35,10 +37,10 @@
                  " Text="999999" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                     <Label Content="截取长度" HorizontalAlignment="Left" Margin="18,164,0,0" VerticalAlignment="Top" Padding="5" MinWidth="3"/>
-                    <TextBox Name="SubCount" HorizontalAlignment="Left" Height="23" Margin="95,166,0,0" VerticalAlignment="Top" Width="120" Text="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox Name="SubCount" HorizontalAlignment="Left" Height="23" Margin="95,166,0,0" VerticalAlignment="Top" Width="120" Text="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                     <CheckBox Name="UseSpecial" Content="使用特殊字符" HorizontalAlignment="Left" Margin="24,202,0,0" VerticalAlignment="Top" IsChecked="True"/>
-                    <TextBox Name="SpecialContent" HorizontalAlignment="Left" Height="23" Margin="134,197,0,0" Text="+-*!@#$%^&amp;*()" VerticalAlignment="Top" Width="137" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox Name="SpecialContent" HorizontalAlignment="Left" Height="23" Margin="134,197,0,0" Text="+-*@#$%" VerticalAlignment="Top" Width="137" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
                     <Label Content="转换前半部分设置" HorizontalAlignment="Left" Margin="18,12,0,0" VerticalAlignment="Top" Width="127" Foreground="#FF546D99" Background="{x:Null}"/>
                     <Label Content="最终生成设置" HorizontalAlignment="Left" Margin="18,134,0,0" VerticalAlignment="Top" Width="127" Foreground="#FF546D99" Background="{x:Null}"/>

@@ -91,9 +91,9 @@ namespace WpfApp1
                 return;
             }
 
-            if (subCount > 18)
+            if (subCount > 40)
             {
-                MessageBox.Show("截取长度不能大于18位", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("截取长度不能大于40位", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -167,7 +167,7 @@ namespace WpfApp1
             string specialContent = LoadData.GetString("SpecialContent");
             bool useRandomCase = LoadData.GetBool("UseRandomCase");
 
-            string result = fixedContent + PasswordInput.Password;
+            string result = fixedContent + Password;
             result = SHA1(result);
             if (useSpecial)
             {
@@ -246,6 +246,35 @@ namespace WpfApp1
             }
         }
 
+        string Password
+        {
+            get
+            {
+                if (ShowPassword.IsChecked.Value)
+                {
+                    return TextPasswordInput.Text;
+                }
+                else
+                {
+                    return PasswordInput.Password;
+                }
+            }
+        }
 
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (ShowPassword.IsChecked.Value)
+            {
+                PasswordInput.Visibility = Visibility.Hidden;
+                TextPasswordInput.Visibility = Visibility.Visible;
+                TextPasswordInput.Text = PasswordInput.Password;
+            }
+            else
+            {
+                PasswordInput.Visibility = Visibility.Visible;
+                TextPasswordInput.Visibility = Visibility.Hidden;
+                PasswordInput.Password = TextPasswordInput.Text;
+            }
+        }
     }
 }
