@@ -1,0 +1,61 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="密码管理器" Height="395.344" Width="414.474"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" AllowDrop="True">
+    <Grid>
+        <TabControl Margin="0">
+            <TabItem Header="密码转换">
+                <Grid Background="#FFE5E5E5"  Drop="FileDragOver" >
+                    <PasswordBox Name="PasswordInput" HorizontalAlignment="Left" Margin="133,68,0,0" VerticalAlignment="Top" Height="23" Width="184" VerticalContentAlignment="Center"/>
+                    <Label Content="转换密码" HorizontalAlignment="Left" Margin="64,66,0,0" VerticalAlignment="Top"/>
+                    <Label Name="TipsLabel" Content="当前加载文件:空" HorizontalAlignment="Center" Margin="64,104,31,0" VerticalAlignment="Top" Width="307" VerticalContentAlignment="Center"/>
+                    <TextBox Name="Result" HorizontalAlignment="Left" Height="23" Margin="133,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" VerticalContentAlignment="Center"/>
+                    <Label Content="转换结果" HorizontalAlignment="Left" Margin="64,230,0,0" VerticalAlignment="Top"/>
+                    <Button Name="ConvertButton" Content="转换" HorizontalAlignment="Left" Margin="158,290,0,0" VerticalAlignment="Top" Width="76" Click="ConvertButton_Click"/>
+                    <Label x:Name="CommentLabel" Content="备注:空" HorizontalAlignment="Center" Margin="64,145,31,0" VerticalAlignment="Top" Width="307" VerticalContentAlignment="Center"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="配置生成">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox Name="FixedContent" HorizontalAlignment="Left" Height="23" Margin="89,39,0,0" VerticalAlignment="Top" Width="142" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="%$xjfl*@k$%a!j*s5~4~"/>
+                    <Label Content="固定内容" HorizontalAlignment="Left" Margin="18,37,0,6" VerticalAlignment="Top" Padding="5" MinWidth="3"/>
+                    <CheckBox Name="UseRandom" Content="使用随机数" HorizontalAlignment="Left" Margin="24,71,0,0" VerticalAlignment="Top" IsChecked="True"/>
+
+
+                    <Label Content="随机数范围" HorizontalAlignment="Left" Margin="19,93,0,0" VerticalAlignment="Top" Padding="5" MinWidth="3"/>
+                    <TextBox Name="RandomMin" HorizontalAlignment="Left" Height="23" Margin="95,95,0,0" VerticalAlignment="Top" Width="80" Text="100000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox Name="RandomMax" HorizontalAlignment="Left" Height="23" Margin="191,95,0,0" VerticalAlignment="Top"  Width="80
+                 " Text="999999" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                    <Label Content="截取长度" HorizontalAlignment="Left" Margin="18,164,0,0" VerticalAlignment="Top" Padding="5" MinWidth="3"/>
+                    <TextBox Name="SubCount" HorizontalAlignment="Left" Height="23" Margin="95,166,0,0" VerticalAlignment="Top" Width="120" Text="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                    <CheckBox Name="UseSpecial" Content="使用特殊字符" HorizontalAlignment="Left" Margin="24,202,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    <TextBox Name="SpecialContent" HorizontalAlignment="Left" Height="23" Margin="134,197,0,0" Text="+-*!@#$%^&amp;*()" VerticalAlignment="Top" Width="137" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                    <Label Content="转换前半部分设置" HorizontalAlignment="Left" Margin="18,12,0,0" VerticalAlignment="Top" Width="127" Foreground="#FF546D99" Background="{x:Null}"/>
+                    <Label Content="最终生成设置" HorizontalAlignment="Left" Margin="18,134,0,0" VerticalAlignment="Top" Width="127" Foreground="#FF546D99" Background="{x:Null}"/>
+
+                    <CheckBox Name="UseRandomCase" Content="使用随机大小写" HorizontalAlignment="Left" Margin="24,234,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    <Button Name="BuildBtn" Content="生成" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Width="74" Height="16" Padding="0" Click="BuildBtn_Click"/>
+
+
+                    <!-- 提示-->
+                    <Label Name="Tips3" Content="密码最终截取长度" HorizontalAlignment="Left" Margin="231,166,0,0" VerticalAlignment="Top" Width="127" Foreground="#FF9C9C9C"/>
+                    <Label Name="Tips1" Content="自定义内容" HorizontalAlignment="Left" Margin="231,37,0,0" VerticalAlignment="Top" Width="127" Foreground="#FF9C9C9C"/>
+                    <Label Name="Tips2" Content="固定内容+随机数" HorizontalAlignment="Left" Margin="122,65,0,0" VerticalAlignment="Top" Width="236" Foreground="#FF9C9C9C"/>
+                    <TextBox x:Name="Comment" HorizontalAlignment="Left" Height="23" Margin="89,265,0,0" VerticalAlignment="Top" Width="245" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+                    <Label Content="备注" HorizontalAlignment="Left" Margin="18,263,0,0" VerticalAlignment="Top" Padding="5" MinWidth="3"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
